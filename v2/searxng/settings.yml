@@ -1,0 +1,38 @@
+# minimal, safe settings.yml for SearXNG (Docker)
+use_default_settings: true
+
+server:
+  bind_address: "0.0.0.0"
+  port: 8080
+  secret_key: "change_this_to_a_long_random_string"
+  public_instance: false       # local dev; avoid limiter/redis requirements
+  base_url: "http://localhost:8888"  # match the exposed port
+  http_protocol_version: "1.1"
+  cors_support: true  # Enable CORS
+  http_headers:
+    X-Content-Type-Options: nosniff
+    X-Frame-Options: SAMEORIGIN
+    X-XSS-Protection: 1; mode=block
+    Access-Control-Allow-Origin: "http://localhost:5173"  # Allow frontend origin
+    Access-Control-Allow-Methods: "GET, POST, OPTIONS"
+    Access-Control-Allow-Headers: "*"
+
+search:
+  safe_search: 1
+  autocomplete: "duckduckgo"
+  formats: ["html", "json"]  # Explicitly enable JSON format
+
+engines:
+  - name: wikidata
+    disabled: true  # Disable wikidata since it's timing out
+  - name: google
+    use_mobile_ui: false
+  - name: duckduckgo
+    use_mobile_ui: false
+  - name: brave
+    use_mobile_ui: false
+
+ui:
+  theme: simple
+  theme_args:
+    simple_style: auto         # auto | light | dark | black

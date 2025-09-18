@@ -1,0 +1,15 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="llamaGradient" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ff6fd8"/>
+      <stop offset="0.5" stop-color="#f9a602"/>
+      <stop offset="1" stop-color="#3813c2"/>
+    </linearGradient>
+  </defs>
+  <path d="M60 10c20 0 40 20 40 50s-20 50-40 50S20 90 20 60 40 10 60 10z" fill="url(#llamaGradient)"/>
+  <ellipse cx="60" cy="60" rx="35" ry="45" fill="#fff"/>
+  <ellipse cx="60" cy="60" rx="25" ry="35" fill="url(#llamaGradient)" fill-opacity="0.3"/>
+  <ellipse cx="60" cy="60" rx="15" ry="20" fill="#fff"/>
+  <circle cx="70" cy="55" r="4" fill="#222"/>
+  <ellipse cx="60" cy="80" rx="8" ry="4" fill="#222" fill-opacity="0.2"/>
+</svg>

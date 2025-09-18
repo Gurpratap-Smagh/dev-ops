@@ -1,0 +1,31 @@
+services:
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - searxng
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5173"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    ports:
+      - '8888:8080'
+    environment:
+      - BASE_URL=http://localhost:8888
+      - SEARXNG_PROXY_HTTP=true
+      - SEARXNG_DEBUG=true
+      - SEARXNG_HTTPS_REWRITE=false
+    volumes:
+      - ./searxng/settings.yml:/etc/searxng/settings.yml
